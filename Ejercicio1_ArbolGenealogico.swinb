@@ -1,0 +1,68 @@
+<div class="notebook">
+
+<div class="nb-cell program" name="p1">
+:- discontiguous
+    padre/2,
+    madre/2.
+
+%padre
+padre(ramon, marcos_padre).
+madre(apolinar, marcos_padre).
+%madre
+padre(rogelio, ofelia).
+madre(micaela, ofelia).
+%tios
+padre(ramon, matilde).
+madre(apolinar, matilde).
+
+padre(rogelio, flor).
+madre(micaela, flor).
+padre(rogelio, carmela).
+madre(micaela, carmela).
+padre(rogelio, mario).
+madre(micaela, mario).
+%primos
+madre(carmela,laura).
+madre(flor,jorge).
+madre(flor, bianca).
+%hermanos 
+padre(marcos_padre,marcos_hijo).
+madre(ofelia, marcos_hijo).
+padre(marcos_padre, monica).
+madre(ofelia, monica).
+%YO
+padre(marcos_padre,alejandra).
+madre(ofelia, alejandra).
+%*************REGLAS****************************
+%¿Quiénes son sus abuel@s?
+ abuelos(X,Y):-(padre(Z,Y),madre(X,Z)); (padre(X,W),madre(W,Y)); (madre(Z,Y),madre(X,Z)); (padre(X,W),padre(W,Y)).
+%¿Quiénes son sus ti@s?
+ tios(X,Y):-(padre(Z,Y),hermanos(Z,X)); (madre(Z,Y),hermanos(Z,X)).
+%¿Quiénes son sus prim@s?
+ primos(X,Y):-(madre(Z,Y),tios(Z,X)).
+%¿Quiénes son herman@s? 
+ hermanos(X,Y):-(padre(Z,X), padre(Z,Y)), (madre(W,X), madre(W,Y)), X\=Y.
+
+
+         
+
+
+</div>
+
+<div class="nb-cell query" data-tabled="true" name="q4">
+primos(X,marcos_hijo).
+</div>
+
+<div class="nb-cell query" data-tabled="true" name="q3">
+tios(X,marcos_hijo)
+</div>
+
+<div class="nb-cell query" name="q1">
+hermanos(X,alejandra).
+</div>
+
+<div class="nb-cell query" data-tabled="true" name="q2">
+abuelos(X,monica).
+</div>
+
+</div>

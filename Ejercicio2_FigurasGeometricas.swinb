@@ -1,0 +1,34 @@
+<div class="notebook">
+
+<div class="nb-cell program" name="p1">
+escaleno(A,B,C):- A\=B, B\=C, A\=C.
+isosceles(A,B,C):- (A=\=B,A==C);(B\=C,A==B);(B\=A,B==C).
+equilatero(A,B,C):- (A==B,A==C).
+triangulo(A,B,C):-(escaleno(A,B,C)),write('escaleno').
+triangulo(A,B,C):-(isosceles(A,B,C)),write('isosceles').
+triangulo(A,B,C):-(equilatero(A,B,C)),write('equilatero').
+</div>
+
+<div class="nb-cell query" data-tabled="true" name="q2">
+triangulo(3,2,5).
+</div>
+
+<div class="nb-cell program" name="p2">
+cuadrado(A,B,C,D):- (A==B,B==D,D==C,C==A),write('Si es un cuadrado').
+
+</div>
+
+<div class="nb-cell query" data-tabled="true" name="q1">
+cuadrado(4,4,4,4)
+</div>
+
+<div class="nb-cell program" name="p3">
+
+rectangulo(A,B,C,D):- (A==B,B\=D,D==C,C\=A),write('rectangulo').
+</div>
+
+<div class="nb-cell query" data-tabled="true" name="q3">
+rectangulo(7,7,4,4).
+</div>
+
+</div>
